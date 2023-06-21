@@ -5,26 +5,18 @@ type TableComponentType = {
 type TableType = {
     manufacturer: string,
     model: string,
-
+   /* index?: number,*/
 }
-
-
 export const TableComponent = (props: TableComponentType) => {
     return (
         <table>
-            {props.topCars.map((elem)=>{
-                return (
-                    <tr>
-                        <td>{elem.manufacturer} {elem.model}</td>
-                    </tr>
-                )
-            })}
+            <tbody>
+            {props.topCars.map((elem) => (
+                <tr key={elem.manufacturer+elem.model}>
+                    <td>{elem.manufacturer} {elem.model}</td>
+                </tr>
+            ))}
+            </tbody>
         </table>
-    )
-
-
-}
-
-
-
-
+    );
+};
