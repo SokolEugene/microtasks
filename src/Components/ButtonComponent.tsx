@@ -1,17 +1,13 @@
-import * as string_decoder from 'string_decoder';
+import React from 'react';
 
-type ButtonType ={
-    name:string,
-    callBack: ()=>void
 
+type ButtonProps = {
+    nameButton: string
+    callback: () => void
 }
 
-export const Button = (props:ButtonType) => {
-    const onClickHandler = () => {
-        props.callBack()
-    }
-
+export const ButtonComponent = (props: ButtonProps ) => {
     return (
-        <button onClick={onClickHandler}>{props.name}</button>
+        <button onClick={()=> props.callback()}>{props.nameButton}</button>
     )
 }
